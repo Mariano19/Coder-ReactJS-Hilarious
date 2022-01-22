@@ -63,7 +63,7 @@ function ItemListContainer() {
                             <div className='price-list'>
                                 <h3>${prod.price}</h3>
                             </div>
-                            <ItemCount stock={8} initial={1} onAdd={onAdd}/>
+                            <ItemCount stock={prod.stock} initial={1} onAdd={onAdd}/>
                         </Card.Body>
                     </Card>
                 </div>                                    
