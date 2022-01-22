@@ -5,7 +5,7 @@ const Cartwidget = () => {
     return (
 
         <div>
-            <BsCart3></BsCart3>
+            <BsCart3/>
         </div>
     )
 }
