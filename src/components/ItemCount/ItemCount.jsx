@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ItemListContainer } from "../ItemListContainer/ItemListContainer";
 
 function ItemCount({ initial, stock, onAdd }) {
     const [contador, setcontador] = useState(initial);
@@ -20,8 +21,12 @@ function ItemCount({ initial, stock, onAdd }) {
     }
 
     return (
-        <div className="buttons container">
-            <div className="button-add">
+        <div className="buttons">
+            <div>
+                <p>En stock</p>
+            </div>
+
+            <div className="button-count">
                 <button className="btn btn-outline-primary" onClick={handlerRestar}> - </button>
                 <div className="contador">
                     {contador}
@@ -31,7 +36,7 @@ function ItemCount({ initial, stock, onAdd }) {
 
             <div className="button-add">
                 <button className="btn btn-primary btn-block" onClick={addToCart} >Agregar</button>
-            </div>
+            </div>            
         </div>
     )
 }

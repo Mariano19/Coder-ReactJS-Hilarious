@@ -20,15 +20,45 @@ img{
   padding: 25px;
 }
 
-/* .buttons .btn{
-  padding: 10px;
-} */
+.card-body{
+  padding: 1rem 2rem;
+}
+
+.card-image{
+  height: 16rem;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  /* height: 14vw; */
+}
+.buttons{
+  display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.button-count{
+  display: flex;
+}
 
 .button-add{
-  padding: 10px;
-  display: flex;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* display: flex; */
+}
+
+.button-add button{
+  width: 100%;
 }
 
 .contador{
   padding: 10px;
+}
+
+.price-list{
+  font-size: 2vw;
+  font-weight: 600;
 }
