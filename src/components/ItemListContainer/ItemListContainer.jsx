@@ -4,11 +4,13 @@ import  Card  from 'react-bootstrap/Card'
 import ItemCount from '../ItemCount/ItemCount'
 import {useEffect, useState} from "react"
 import {getFetch} from '../../helpers/mock'
-
+import getProducts from '../../helpers/getProducts';
+import ItemList from '../ItemList/ItemList';
 
 function ItemListContainer() {
-    const [productos, setProductos] = useState ([])
+    const [products, setListProducts] = useState ([])
     const [loading, setloading] = useState(true)
+    
 
     // llamada a una api. Tarea asincónica
         /* const url = " https://pokeapi.co/api/v2/pokemon?limit=100&offset=200";
@@ -21,18 +23,24 @@ function ItemListContainer() {
         } catch (error) {
         console.log(error);
         }
-    };
+    };*/
+    /* 24-1 */
+    /* useEffect(() => {
+        getProducts()
+        .then((data) => setProducts(data));
+        .catch((err => console.log(err)) ;
+    }, []); */ 
 
-    useEffect(() => {
-        peticion();
-    }, []); */
-
-    useEffect(() => {        
-        getFetch
-        .then(res => setProductos(res))
-        .catch(err => console.log(err))        
-        .finally(()=> setloading(false))   
-        //console.log('api')     
+    useEffect(() => { 
+        getProducts()  
+            .then((data) =>
+                 setListProducts(
+                     /* categoryId ? data.filter((el) => el.category === categoryI) : data */
+                     data
+                 )
+            )
+        .catch(err => console.log(err))                
+        .finally(()=> setloading(false))               
     }, [])
 
     //Agregar al carrito
@@ -41,11 +49,22 @@ function ItemListContainer() {
     }
 
     return (
-
         <div className='container items'>
             
+            { loading ? <h2>Cargando ...</h2>:
+            <ItemList products={products} />
+            }
+        </div>
+        
+
+                
+    )
+};
+
+{/* <div className='container items'>
+            
             { loading ? <h2>Cargando ...</h2> :
-                productos.map( prod => 
+                products.map( prod => 
                 <div 
                     key={prod.id}
                     className='col-md-4 cards'
@@ -69,10 +88,6 @@ function ItemListContainer() {
                 </div>                                    
             
             ) }  
-        </div>        
-    )
-}
-
-
+        </div> */}
 
 export default ItemListContainer

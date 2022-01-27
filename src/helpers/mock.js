@@ -1,4 +1,4 @@
-const productos = [
+const products = [
     { id: '1', stock: "3", categoria: 'lentes', name: "Lentes Kim", price: 1800, foto:'https://http2.mlstatic.com/D_NQ_NP_650358-MLA48010178441_102021-W.webp' },
     { id: '2', stock: "4", categoria: 'lentes', name: "Lentes Ibiza", price: 2000, foto:'https://http2.mlstatic.com/D_NQ_NP_936312-MLA43506360902_092020-W.webp' },
     { id: '3', stock: "5", categoria: 'lentes', name: "Lentes Rusty Pears", price: 1600, foto:'https://http2.mlstatic.com/D_NQ_NP_746375-MLA48170463519_112021-W.webp' },
@@ -9,16 +9,17 @@ const productos = [
 ];
 
 
+export default products;
 
-export const getFetch = new Promise( (res,rej)=> {
+/* export const getFetch = new Promise( (res,rej)=> {
     //acciones
     let condition= true
     if (condition) {
         setTimeout(()=>{
             //Acciones que quiero que se resuelvan
-            res(productos)        
+            res(products)        
         }, 1000)
     }else{
         rej('404 not found')
     }
-} )
+} ) */
