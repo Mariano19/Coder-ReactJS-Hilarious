@@ -6,6 +6,7 @@ import {useEffect, useState} from "react"
 import {getFetch} from '../../helpers/mock'
 import getProducts from '../../helpers/getProducts';
 import ItemList from '../ItemList/ItemList';
+import { useParams } from 'react-router-dom'
 
 function ItemListContainer() {
     const [products, setListProducts] = useState ([])
@@ -13,7 +14,7 @@ function ItemListContainer() {
     
 
     // llamada a una api. Tarea asincónica
-        /* const url = " https://pokeapi.co/api/v2/pokemon?limit=100&offset=200";
+        /* const url = "";
 
     const peticion = async () => {
         try {
@@ -31,23 +32,21 @@ function ItemListContainer() {
         .catch((err => console.log(err)) ;
     }, []); */ 
 
+    const {idCategoria} = useParams();
+
     useEffect(() => { 
         getProducts()  
-            .then((data) =>
+            .then((data) => {
                  setListProducts(
-                     /* categoryId ? data.filter((el) => el.category === categoryI) : data */
-                     data
-                 )
-            )
+                     idCategoria ? data.filter((el) => el.categoria === idCategoria) : data)
+                     
+            })
+            
         .catch(err => console.log(err))                
         .finally(()=> setloading(false))               
-    }, [])
+    }, [idCategoria])
 
-    //Agregar al carrito
-    function onAdd(cant) {
-        console.log(cant)
-    }
-
+    
     return (
         <div className='container items'>
             

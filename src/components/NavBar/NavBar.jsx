@@ -19,13 +19,11 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">                        
-                        <Nav.Link href="#features">Contacto</Nav.Link>
-                        <Nav.Link href="#pricing">Nosotros</Nav.Link>
-                        <NavDropdown title="Articulos" id="collasible-nav-dropdown">
-                            {/* <Link to='/categoria/lentes'>Lentes</Link> */}
-                            <NavDropdown.Item href="#action/3.1">Lentes</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Gorros</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Bufandas</NavDropdown.Item>
+                        <Nav.Link><Link to='/contacto'>Contacto</Link></Nav.Link>
+                        <Nav.Link><Link to='/nosotros'>Nosotros</Link></Nav.Link>     
+                        <NavDropdown title="Articulos" id="collasible-nav-dropdown">                            
+                            <NavDropdown.Item><Link to='/categoria/lentes'>Lentes</Link></NavDropdown.Item>
+                            <NavDropdown.Item><Link to='/categoria/gorros'>Gorros</Link></NavDropdown.Item>                            
                             {/* <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                         </NavDropdown>
