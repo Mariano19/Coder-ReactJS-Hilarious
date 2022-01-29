@@ -14,6 +14,7 @@ img{
 .container{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .cards{
@@ -62,3 +63,13 @@ img{
   font-size: 2vw;
   font-weight: 600;
 }
+
+/**********Item detail**********/
+
+.card-image-detail{
+  height: fit-content;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+}
+

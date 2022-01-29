@@ -1,10 +1,10 @@
 import React from 'react';
-import { Card,Button } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 
 
-const Item = ({id, name, stock, price, foto}) => {
+const Item = ({ id, name, stock, price, foto }) => {
 
   //Agregar al carrito
   function onAdd(cant) {
@@ -28,8 +28,8 @@ const Item = ({id, name, stock, price, foto}) => {
           </Card.Text>
           <div className='price-list'>
             <h3>${price}</h3>
-          </div>          
-          <ItemCount stock={stock} initial={1} onAdd={onAdd}/>          
+          </div>
+          <ItemCount stock={stock} initial={1} onAdd={onAdd} />
           <Link to={`/detalle/${id}`}>
             <Button variant="secondary" size="sm">Ver mas</Button>
           </Link>
