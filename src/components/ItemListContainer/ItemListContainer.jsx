@@ -3,6 +3,7 @@ import {useEffect, useState} from "react"
 import getProducts from '../../helpers/getProducts';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom'
+import Loader from '../loader/loader';
 
 function ItemListContainer() {
     const [products, setListProducts] = useState ([])
@@ -12,6 +13,13 @@ function ItemListContainer() {
     const {idCategoria} = useParams();
 
     useEffect(() => { 
+
+        /* const db = getFirestore()
+        const queryCollection = collection(db,'items')
+        getDocs(queryCollection)
+        .then(resp => setListProducts( resp.docs.map(prod =>))) */
+
+        setloading(true)
         getProducts()  
             .then((data) => {
                  setListProducts(
@@ -20,14 +28,17 @@ function ItemListContainer() {
             })
             
         .catch(err => console.log(err))                
-        .finally(()=> setloading(false))               
+        .finally(()=> setloading(false))  
+                     
     }, [idCategoria])
 
     
     return (
         <div className='container items'>
             
-            { loading ? <h2>Cargando ...</h2>:
+            { loading ? 
+                <Loader></Loader>                
+            :
             <ItemList products={products} />
             }
         </div>
