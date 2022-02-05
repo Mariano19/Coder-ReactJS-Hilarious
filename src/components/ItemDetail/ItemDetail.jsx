@@ -10,7 +10,6 @@ import ItemCount from '../ItemCount/ItemCount';
 
 const ItemDetail = (prod) => {
   const { name, categoria, stock, price, foto } = prod.product; 
-
   const [counter, setCounter] = useState(0);
 
 
@@ -20,8 +19,8 @@ const ItemDetail = (prod) => {
     setCounter(cant)
   }
 
-
-  const{addProduct} = useCartContext();
+  //
+  const{addProduct} = useCartContext(); 
 
   
   return (    
@@ -41,7 +40,11 @@ const ItemDetail = (prod) => {
             </div>  
             {
               counter === 0 ?
-                <ItemCount stock={stock} initial={1} onAdd={onAdd} /> 
+                <div>
+                  {/* <Button onClick={() =>addProduct(name)}>Agregar</Button> */}
+                  <ItemCount stock={stock} initial={1} onAdd={onAdd} /> 
+                </div>
+                
               :
                 <div>
                   <Link to = '/cart'>

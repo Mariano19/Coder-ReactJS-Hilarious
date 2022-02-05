@@ -24,33 +24,33 @@ export const CartContextProvider = ({ children }) => {
         if (avoidDuplicate(element)) {
             const changeCount = [...products]
             changeCount.forEach(x => {
-                if (x.nombre === element) {
+                if (x.name === element) {
                     x.quantity += 1
                 }
             })
             return setProducts(changeCount)
         }
-        return setProducts([...products, { nombre: element, quantity: 1 }])
+        return setProducts([...products, { name: element, quantity: 1 }])
     }
 
     const avoidDuplicate = (parametro) => {
         const findCharacter = products.find((i) => {
-            return i.nombre === parametro
+            return i.name === parametro
         })
         return findCharacter
     }
 
     const deleteOne = (item) => {
         const eliminarItem = [...products]
-        const itemEliminado = eliminarItem.filter(x => x.nombre !== item)
+        const itemEliminado = eliminarItem.filter(x => x.name !== item)
         console.log('se ejecuta')
         return setProducts(itemEliminado)
     }
 
-    const borraTodos = () => setProducts([])
+    const deleteAll = () => setProducts([])
 
     return (
-        <CartContext.Provider value={{ addProduct, products, deleteOne, borraTodos }}>
+        <CartContext.Provider value={{ addProduct, products, deleteOne, deleteAll }}>
             {children}
         </CartContext.Provider>
     )
