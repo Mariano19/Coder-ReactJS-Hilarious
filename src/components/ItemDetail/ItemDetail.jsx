@@ -1,10 +1,30 @@
-import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import  Button from 'react-bootstrap/Button'
+import  Card  from 'react-bootstrap/Card'
+import { Link } from 'react-router-dom';
+import { useCartContext } from '../../context/CartContext';
+import ItemCount from '../ItemCount/ItemCount';
+
+
+
 
 const ItemDetail = (prod) => {
   const { name, categoria, stock, price, foto } = prod.product; 
-  return (
-    
+
+  const [counter, setCounter] = useState(0);
+
+
+
+  //Agregar al carrito
+  function onAdd(cant) {
+    setCounter(cant)
+  }
+
+
+  const{addProduct} = useCartContext();
+
+  
+  return (    
     <div className='container card-container'>
       <Card className='card-detail'>
           <div className='card-image-detail'>
@@ -18,7 +38,21 @@ const ItemDetail = (prod) => {
             </Card.Text>
             <div className='price-list'>
               <h3>${price}</h3>
-            </div>              
+            </div>  
+            {
+              counter === 0 ?
+                <ItemCount stock={stock} initial={1} onAdd={onAdd} /> 
+              :
+                <div>
+                  <Link to = '/cart'>
+                    <Button>Terminar compra</Button> 
+                  </Link>
+                  <Link to = '/'>
+                    <Button>Volver al home</Button> 
+                  </Link>
+                </div>
+            } 
+                      
           </Card.Body>
         </Card>
     </div>

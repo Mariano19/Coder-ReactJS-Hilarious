@@ -22,8 +22,10 @@ const NavBar = () => {
                         <Link to='/contacto'>Contacto</Link>
                         <Link to='/nosotros'>Nosotros</Link>    
                         <NavDropdown title="Articulos" id="collasible-nav-dropdown">                            
-                            <NavDropdown.Item><Link to='/categoria/lentes'>Lentes</Link></NavDropdown.Item>
-                            <NavDropdown.Item><Link to='/categoria/gorros'>Gorros</Link></NavDropdown.Item>                            
+                            <Link to='/categoria/lentes' className="dropdown-item">Lentes</Link>
+                            <Link to='/categoria/gorros' className="dropdown-item">Gorros</Link>   
+                            {/* <Nav.Link as={Link} to="/contact">anywords</Nav.Link>  
+                            <NavDropdown.Item><Link to='/categoria/gorros'>Gorros</Link></NavDropdown.Item>  */}                  
                             {/* <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                         </NavDropdown>
