@@ -1,49 +1,58 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext } from "react";
+const cartContext = createContext([])
 
-const CartContext = createContext(null)
-
-export const useCartContext = () => useContext(CartContext)
-
-export const CartContextProvider = ({ children }) => {
-    const [products, setProducts] = useState([])
+export function useCartContext() {return useContext(cartContext)} 
 
 
-    function addProduct(element) {
-        if (avoidDuplicate(element)) {
-            const changeCount = [...products]
-            changeCount.forEach(x => {
-                if (x.name === element) {
-                    x.quantity += 1
-                }
-            })
-            return setProducts(changeCount)
-        }
-        return setProducts([...products, { name: element, quantity: 1 }])
-    }
-
-    const avoidDuplicate = (parametro) => {
-        const findCharacter = products.find((i) => {
-            return i.name === parametro
-        })
-        return findCharacter
-    }
-
-    const deleteOne = (item) => {
-        const eliminarItem = [...products]
-        const itemEliminado = eliminarItem.filter(x => x.name !== item)
-        console.log('se ejecuta')
-        return setProducts(itemEliminado)
-    }
-
-    const deleteAll = () => setProducts([])
-
-    return (
-        <CartContext.Provider value={{ addProduct, products, deleteOne, deleteAll }}>
-            {children}
-        </CartContext.Provider>
-    )
-
+function CartContextProvider({ children }) {
     
+    const [cartList, setCartList] = useState([]);
+
+    function agregarAlCarrito(item){
+        console.log(item)
+        const index = cartList.findIndex(prod => prod.product.id === item.product.id )
+
+        if (index === -1) {
+            // no existe, lo agrego
+            setCartList( [ ...cartList, item ] )
+        } else {
+            // si existe
+            const cant = cartList[index].cantidad
+            cartList[index].cantidad = item.cantidad + cant 
+            const newCartList = [ ...cartList ]
+            setCartList(newCartList)
+        }
+
+    }
+    const sumaTotal = () => {
+        return cartList.reduce((acum, prod) =>  acum= acum + (prod.product.price * prod.cantidad)  ,0)
+    }
+    
+    const cantidad = () => {
+        return cartList.reduce((acum, prod) =>  acum += prod.cantidad  ,0)
+    }
+
+    const borrarItem = (id) => { 
+        setCartList( cartList.filter( prod => prod.product.id !== id ) )
+    }
+
+    function vaciarCarrito() {
+        setCartList([])
+        
+    }
+    console.log(cartList)
+  return <cartContext.Provider value={{
+      cartList,
+      agregarAlCarrito,
+      vaciarCarrito,
+      sumaTotal,
+      cantidad,
+      borrarItem
+  }} >
+        {children}
+  </cartContext.Provider>;
 }
 
-export default CartContextProvider
+export default CartContextProvider;
+
+

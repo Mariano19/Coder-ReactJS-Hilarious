@@ -11,18 +11,17 @@ import ItemCount from '../ItemCount/ItemCount';
 const ItemDetail = (prod) => {
   const { name, categoria, stock, price, foto } = prod.product; 
   const [counter, setCounter] = useState(0);
-
+  const { cartList, agregarAlCarrito } = useCartContext()
 
 
   //Agregar al carrito
   function onAdd(cant) {
     setCounter(cant)
+    agregarAlCarrito( {...prod, cantidad: cant} )
   }
 
-  //
-  const{addProduct} = useCartContext(); 
-
-  
+  console.log(cartList)
+    
   return (    
     <div className='container card-container'>
       <Card className='card-detail'>
@@ -41,7 +40,7 @@ const ItemDetail = (prod) => {
             {
               counter === 0 ?
                 <div>                  
-                  <ItemCount stock={stock} initial={1} onAdd={addProduct(name)} /> 
+                  <ItemCount stock={stock} initial={1} onAdd={onAdd} /> 
                 </div>
                 
               :
