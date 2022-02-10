@@ -40,9 +40,8 @@ const ItemDetail = (prod) => {
             </div>  
             {
               counter === 0 ?
-                <div>
-                  {/* <Button onClick={() =>addProduct(name)}>Agregar</Button> */}
-                  <ItemCount stock={stock} initial={1} onAdd={onAdd} /> 
+                <div>                  
+                  <ItemCount stock={stock} initial={1} onAdd={addProduct(name)} /> 
                 </div>
                 
               :
