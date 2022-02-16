@@ -15,6 +15,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-export default function getFirestoreApp(params){
+export default function getFirestoreApp() {
     return app
 }
