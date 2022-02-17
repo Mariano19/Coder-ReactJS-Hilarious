@@ -1,10 +1,9 @@
 import React from 'react'
 import {useEffect, useState} from "react"
-import getProducts from '../../helpers/getProducts';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom'
 import Loader from '../loader/loader';
-import { collection, getDoc, getFirestore, getFirestoreApp } from 'firebase/firestore'
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 
 
 function ItemListContainer() {
@@ -14,21 +13,25 @@ function ItemListContainer() {
     
     const {idCategoria} = useParams();
 
-    useEffect(() => { 
-
+    // Firebase
+    useEffect(() => {
         const db = getFirestore()
-        const queryCollection = collection(db,'items')
-        getDoc(queryCollection)        
-        .then((data) => {
-            setListProducts(
-                idCategoria ? data.filter((el) => el.categoria === idCategoria) : data)
-                
-       })
-            
-        .catch(err => console.log(err))                
-        .finally(()=> setloading(false))  
-                     
+        const queryCollection = collection(db, 'items')        
+             
+        const queryF = !idCategoria ? 
+            queryCollection                
+        : 
+            query(queryCollection, 
+                where('categoria', '==', idCategoria)                
+            )  
+
+        getDocs(queryF)
+        .then(resp => setListProducts( resp.docs.map(prod => ( { id: prod.id, ...prod.data() } )  ) ))
+        .catch((err) => console.log(err))
+        .finally(() => setloading(false))            
+                   
     }, [idCategoria])
+
 
     
     return (
