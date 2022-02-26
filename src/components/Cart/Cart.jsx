@@ -3,7 +3,7 @@ import { useCartContext } from "../../context/CartContext";
 import Button from "react-bootstrap/esm/Button";
 import { Link } from "react-router-dom";
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from "firebase/firestore";
-
+import Form from '../Form/Form';
 
 const Cart = () => {
 
@@ -85,6 +85,12 @@ const Cart = () => {
 
   console.log(dataForm);
 
+  const finalizarCompra = (event) => {
+    const ordenar = true
+    console.log(ordenar)
+  } 
+
+
   return <div>
     {id !== '' && `El id de la orden es : ${id} `}
     <br />
@@ -95,44 +101,10 @@ const Cart = () => {
       </div>)}
       {`la suma es ${sumaTotal()}`}
       <button onClick={vaciarCarrito} >Vaciar Carrito</button>
+      <button onClick={finalizarCompra}>Finalizar compra</button>
       <br />
-
-      <form
-        onSubmit={realizarCompra}
-      >
-        <input
-          type='text'
-          name='name'
-          placeholder='name'
-          onChange={handleChange}
-          value={dataForm.name}
-        />
-        <br />
-        <input
-          type='number'
-          name='phone'
-          placeholder='tel'
-          onChange={handleChange}
-          value={dataForm.phone}
-        />
-        <br />
-        <input
-          type='email'
-          name='email'
-          placeholder='email'
-          onChange={handleChange}
-          value={dataForm.email}
-        />
-        <input
-          type='email'
-          name='validarEmail'
-          placeholder='Repetir Email'
-          onChange={handleChange}
-        //value={}
-        />
-        <br />
-        <button>Generar Orden</button>
-      </form>
+      <Form></Form>
+      
     </>
       :
       <div>
