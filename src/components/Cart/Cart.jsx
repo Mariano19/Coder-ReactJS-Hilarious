@@ -29,9 +29,9 @@ const Cart = () => {
     orden.total = sumaTotal();
 
     orden.items = cartList.map(cartItem => {
-      const id = cartItem.item.id;
-      const nombre = cartItem.item.name;
-      const precio = cartItem.item.price * cartItem.cantidad;
+      const id = cartItem.product.id;
+      const nombre = cartItem.product.name;
+      const precio = cartItem.product.price * cartItem.cantidad;
       const cantidad = cartItem.cantidad
 
       return {
@@ -53,14 +53,14 @@ const Cart = () => {
 
     const queryActulizarStock = query(
       queryCollection,
-      where(documentId(), 'in', cartList.map(it => it.item.id))
+      where(documentId(), 'in', cartList.map(it => it.product.id))
     )
 
     const batch = writeBatch(db)
 
     await getDocs(queryActulizarStock)
       .then(resp => resp.docs.forEach(res => batch.update(res.ref, {
-        stock: res.data().stock - cartList.find(item => item.item.id === res.id).cantidad
+        stock: res.data().stock - cartList.find(item => item.product.id === res.id).cantidad
       })
       ))
       .catch(err => console.log(err))
