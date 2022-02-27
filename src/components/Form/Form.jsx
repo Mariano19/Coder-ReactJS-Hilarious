@@ -7,17 +7,13 @@ import  Modal from 'react-bootstrap/Modal'
 
 const Form = () => {
 
-    /* Modal Form */
+    /* Modal */
     const [show, setShow] = useState(false);      
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-
     const [showBuy, setShowBuy] = useState(false);      
     const handleShowBuy = () => setShowBuy(true);
-
-    var setBuy = false;
-    
 
     const { cartList, vaciarCarrito, sumaTotal, borrarItem } = useCartContext()
     const [id, setId] = useState('')
@@ -26,8 +22,7 @@ const Form = () => {
         phone: '',
         name: ''
     })
-    
-    //
+        
     const realizarCompra = async (e) => {
         e.preventDefault()
         let orden = {}
@@ -73,13 +68,7 @@ const Form = () => {
                     phone: '',
                     name: ''
                 })
-                
-                
-                console.log(setBuy)
                 handleShowBuy(true)
-                /* setBuy = true */
-                console.log(setBuy)
-                /* vaciarCarrito() */
             })
         batch.commit()
 

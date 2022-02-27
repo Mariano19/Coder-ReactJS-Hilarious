@@ -1,0 +1,83 @@
+/* Title*/
+.brandTitle {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  border-style: none;  
+  box-sizing: border-box;
+  font-family: "NatureBeauty";
+  color: #AB3633;
+  cursor: pointer;
+  display: inline-block;  
+  font-size: 2vw;
+  /* font-weight: 700; */
+  letter-spacing: -.24px;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.3rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.brandTitle:hover {  
+  transform: scale(1.125);
+}
+
+.brandTitle:active {
+  transform: scale(1.025);
+}
+
+@media (min-width: 768px) {
+  .brandTitle {
+    font-size: 1.8vw;
+    padding: 0rem 2rem 0rem 0rem;
+  }
+}
+.navbar-nav{
+    padding-left: 10%;
+}
+
+.navbar-collapse a{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8vw;
+    text-decoration: none;
+    color: rgba(0,0,0,.55);
+    padding-right: 0.5rem;
+    padding-left: 2.5rem;
+    align-items: center;
+    display: flex;
+}
+
+.navbar-collapse a:hover{
+    color: #AB3633;   
+    font-weight: 800; 
+}
+
+.nav-item a:hover{
+    color: #AB3633; 
+}
+
+#collasible-nav-dropdown:hover{
+    color: #AB3633; 
+    font-weight: 800;
+}
+
+#collasible-nav-dropdown:active{
+    color: #AB3633;     
+    background-color: #ab373379;
+}
+.dropdown-item.active, .dropdown-item:active{
+    color: #AB3633;     
+    background-color: #ab37331e;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color: #ab37331e;
+    color: #1e2125;
+}
