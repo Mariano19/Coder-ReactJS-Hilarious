@@ -27,68 +27,13 @@ a{
 }
 
 
-img{
+/* img{
   width: 100px
-}
+} */
 
 
 
-.items{
-  margin-top: 5%;
-}
 
-.container{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.cards{
-  padding: 25px;
-}
-
-.card-body{
-  padding: 1rem 2rem;
-}
-
-.card-image{
-  height: 16rem;
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  /* height: 14vw; */
-}
-.buttons{
-  display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-.button-count{
-  display: flex;
-}
-
-.button-add{
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  /* display: flex; */
-}
-
-.button-add button{
-  width: 100%;
-}
-
-.contador{
-  padding: 10px;
-}
-
-.price-list{
-  font-size: 2vw;
-  font-weight: 600;
-}
 
 /**********Item detail**********/
 

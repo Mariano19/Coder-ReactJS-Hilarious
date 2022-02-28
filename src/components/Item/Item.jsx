@@ -1,37 +1,33 @@
 import React from 'react';
+import { Col } from 'react-bootstrap';
 import  Button from 'react-bootstrap/Button'
 import  Card  from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom';
+import './item.css';
 
 
 
 const Item = ({ id, name, stock, price, foto }) => {
 
   return (
-    <div
-      key={id}
-      className='col-md-4 cards'
+    <Col
+      key={id}      
     >
-      <Card style={{ width: '20rem' }}>
+      <Card>
         <div className='card-image'>
+          <div>
           <Card.Img variant="top" src={foto} />
+          </div>
+          
         </div>
         <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
-          </Card.Text>
-          <div className='price-list'>
-            <h3>${price}</h3>
-          </div>
-          {/* <ItemCount stock={stock} initial={1} onAdd={onAdd} /> */}
+          <Card.Title>{name}</Card.Title>          
           <Link to={`/detalle/${id}`}>
-            <Button variant="secondary" size="sm">Ver mas</Button>
+            <button className='button-principal'>Ver mas</button>
           </Link>
         </Card.Body>
       </Card>
-    </div>
+    </Col>
   )
 };
 

@@ -1,0 +1,13 @@
+.list-contain{
+    margin-top: 10%;
+}
+
+h2{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.699);
+    letter-spacing: 0.2em;
+    margin-bottom: 7%;
+    text-align: center;
+}

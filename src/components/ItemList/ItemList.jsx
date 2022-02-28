@@ -1,4 +1,5 @@
 import React , {memo} from 'react';
+import { Row } from 'react-bootstrap';
 import Item from '../Item/Item';
 
 
@@ -6,7 +7,7 @@ const ItemList = memo( ({ products }) => {
   console.log('itemlist')
   return (
     
-    <div className='container items'>
+    <Row xs={1} md={2} className="g-4">
       {products.map(prod =>
         <Item
           key={prod.id}
@@ -18,7 +19,7 @@ const ItemList = memo( ({ products }) => {
           foto={prod.foto}
         />
       )}
-    </div>
+    </Row>
     
   )
 });

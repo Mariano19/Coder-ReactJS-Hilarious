@@ -8,6 +8,7 @@ import Cart from './components/Cart/Cart';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartContextProvider from './context/CartContext';
 import Home from './pages/Home';
+import Summer from './pages/Summer';
 
 
 
@@ -21,7 +22,12 @@ function App() {
           <NavBar />
           <Routes>
             
-            <Route exact path='/' element={<Home/>} />
+            <Route exact path='/' element={
+              <>
+              <Summer/>              
+              <ItemListContainer />
+              </>            
+            } />
             <Route exact path='/categoria/:idCategoria' element={
               <>
               <Home />

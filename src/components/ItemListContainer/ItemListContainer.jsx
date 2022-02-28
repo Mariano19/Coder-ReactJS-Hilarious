@@ -4,6 +4,7 @@ import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom'
 import Loader from '../loader/loader';
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
+import './itemListContainer.css'
 
 
 function ItemListContainer() {
@@ -36,12 +37,16 @@ function ItemListContainer() {
     
     return (
         <div className='container items'>
+            <div className='list-contain'>
+            <h2 id='products-container'>Destacados</h2>
             
             { loading ? 
                 <Loader></Loader>                
-            :
+            :            
             <ItemList products={products} />
             }
+            </div>
+            
         </div>
         
 

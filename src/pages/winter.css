@@ -1,11 +1,11 @@
-.summer{
-    background-image: url(../assets/img/verano4.jpg);
+.winter{
+    background-image: url(../assets/img/invierno.jpg);
     height: 100vh;
     background-size: cover;
     background-position: right;
 }
 
-.summer-container{
+.winter-container{
   display: flex;
   flex-direction: column;
   height: inherit;
@@ -19,37 +19,45 @@
 }
 
 
-.title{
+.winter-title{
   display: flex;
   flex-direction: column;
   font-family: 'Raleway';
-  color: #AB3633;
+  color: #234A85;
   font-size: 5vw;
 }
 
-.title-1{
+.winter-title-1{
   font-weight: 900;
   text-transform: uppercase;
   margin-left: 15%;
 }
 
-.title-2{
+.winter-title-2{
   font-weight: 100;
-  margin-top: -20%;  
+  margin-top: -19%;  
 }
 
-.button-pos{
+.winter-button-pos{
   margin-top: 12%;
   margin-bottom: 21%;
 }
 
+.winter-logo-pos{
+  display: flex;
+  justify-content: center;
+  margin-top: -8%;
+}
 
+.winter-logo-pos img{
+    width: 250px;
+}
 
 /* Buttons */
 
-.button-redes{
+.winter-button-redes{
   background-color: white;
-  color: #AB3633;
+  color: #234A85;
   font-family: 'NeoRetro';
   width: 120%;
   height: 25px;
@@ -63,22 +71,22 @@
 }
 
 a{  
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
+  -webkit-appearance: winter-button;
+  -moz-appearance: winter-button;
+  appearance: winter-button;
 
   text-decoration: none;
   color: initial;
 }
 
-.button-redes svg{
+.winter-button-redes svg{
   margin-right: 5px;
   padding-right: 5px;
 }
 
-.button-principal {
+.winter-button-principal {
   backface-visibility: hidden;
-  background: #AB3633;
+  background: #234A85;
   border: 0;
   border-radius: 0;
   box-sizing: border-box;
@@ -101,24 +109,24 @@ a{
   touch-action: manipulation;
 }
 
-.button-principal:disabled {
+.winter-button-principal:disabled {
   color: #787878;
   cursor: auto;
 }
 
-.button-principal:not(:disabled):hover {
+.winter-button-principal:not(:disabled):hover {
   transform: scale(1.05);
 }
 
-.button-principal:not(:disabled):hover:active {
+.winter-button-principal:not(:disabled):hover:active {
   transform: scale(1.05) translateY(.125rem);
 }
 
-.button-principal:focus {
+.winter-button-principal:focus {
   outline: 0 solid transparent;
 }
 
-.button-principal:focus:before {
+.winter-button-principal:focus:before {
   border-width: .125rem;
   content: "";
   left: calc(-1*.375rem);
@@ -129,11 +137,11 @@ a{
   user-select: none;
 }
 
-.button-principal:focus:not(:focus-visible) {
+.winter-button-principal:focus:not(:focus-visible) {
   outline: 0 solid transparent;
 }
 
-.button-principal:not(:disabled):active {
+.winter-button-principal:not(:disabled):active {
   transform: translateY(.125rem);
 }
 
