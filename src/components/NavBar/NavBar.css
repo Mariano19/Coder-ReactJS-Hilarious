@@ -1,5 +1,5 @@
 /* Title*/
-.brandTitle {
+.brand-title {
   appearance: none;
   background-color: transparent;
   border: none;
@@ -24,16 +24,16 @@
   touch-action: manipulation;
 }
 
-.brandTitle:hover {  
+.brand-title:hover {  
   transform: scale(1.125);
 }
 
-.brandTitle:active {
+.brand-title:active {
   transform: scale(1.025);
 }
 
 @media (min-width: 768px) {
-  .brandTitle {
+  .brand-title {
     font-size: 1.8vw;
     padding: 0rem 2rem 0rem 0rem;
   }

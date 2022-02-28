@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Cart from './components/Cart/Cart';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartContextProvider from './context/CartContext';
+import Home from './pages/Home';
+
 
 
 
@@ -16,12 +18,16 @@ function App() {
     <BrowserRouter>
       <CartContextProvider>
         <div className="App">
-          {/* importo los componentes */}
-
           <NavBar />
           <Routes>
-            <Route exact path='/' element={<ItemListContainer />} />
-            <Route exact path='/categoria/:idCategoria' element={<ItemListContainer />} />
+            
+            <Route exact path='/' element={<Home/>} />
+            <Route exact path='/categoria/:idCategoria' element={
+              <>
+              <Home />
+              <ItemListContainer />
+              </>
+            } />            
             <Route exact path='/cart' element={<Cart />} />
             <Route exact path='/detalle/:idProducto' element={<ItemDetailContainer />} />
 
