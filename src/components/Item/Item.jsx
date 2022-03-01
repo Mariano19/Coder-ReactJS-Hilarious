@@ -1,14 +1,13 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
-import  Button from 'react-bootstrap/Button'
 import  Card  from 'react-bootstrap/Card'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './item.css';
 
 
 
 const Item = ({ id, name, stock, price, foto }) => {
-
+  const {idCategoria} = useParams();
   return (
     <Col
       key={id}      
@@ -23,7 +22,11 @@ const Item = ({ id, name, stock, price, foto }) => {
         <Card.Body>
           <Card.Title>{name}</Card.Title>          
           <Link to={`/detalle/${id}`}>
+            {idCategoria === 'verano'?
             <button className='button-principal'>Ver mas</button>
+            :
+            <button className='button-principal-winter'>Ver mas</button>         
+          }
           </Link>
         </Card.Body>
       </Card>

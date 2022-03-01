@@ -41,7 +41,7 @@ function ItemListContainer() {
             <h2 id='products-container'>Destacados</h2>
             
             { loading ? 
-                <Loader></Loader>                
+                <Loader/>                
             :            
             <ItemList products={products} />
             }

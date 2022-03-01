@@ -1,8 +1,8 @@
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import getProducts from '../../helpers/getProducts';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import Loader from '../loader/loader';
 
 const ItemDetailContainer = () => {
   const [products, setProduct] = useState([]);
@@ -25,7 +25,7 @@ const ItemDetailContainer = () => {
   return (
     <>
       { loading ? 
-                <h2>Cargando ...</h2>
+        <Loader/> 
       :
       <ItemDetail product={products} />
       }

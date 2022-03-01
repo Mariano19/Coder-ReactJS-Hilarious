@@ -11,7 +11,7 @@ const Home = () => {
     return (
       
       <div>
-        {idCategoria == 'invierno'?        
+        {idCategoria === 'invierno'?        
           <Winter/>    
         :           
           <Summer/> 
