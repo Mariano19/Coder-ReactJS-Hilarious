@@ -1,0 +1,53 @@
+.background-cart{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.445),rgba(0, 0, 0, 0.473)),url(../../assets/img/cartBG.jpg);    
+    height: 93vh;
+    background-size: cover;
+    background-position: right;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.item-cart{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 12px rgb(110 110 110 / 17%);
+    border: none;
+    padding: 1% 4%;
+    height: 90px;
+    width: 100%;
+    margin: 1%;
+    font-family: "Raleway";
+}
+
+.image-cart{
+    width: 100px;
+}
+
+.title-cart{
+    width: 100%;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;    
+}
+
+.text-cart{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.name{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.item-cart-divider{
+    display: flex;
+    align-items: center;
+    width: 80%;
+}

@@ -1,6 +1,5 @@
 .background-summer{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.445),rgba(0, 0, 0, 0.473)),url(../../assets/img/verano4.jpg);
-    
+    background-image:linear-gradient(rgba(0, 0, 0, 0.445),rgba(0, 0, 0, 0.473)),url(../../assets/img/verano4.jpg);    
     height: 93vh;
     background-size: cover;
     background-position: right;

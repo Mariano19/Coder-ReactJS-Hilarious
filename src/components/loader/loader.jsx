@@ -6,7 +6,7 @@ const loader = () => {
   return (
     <div className='fullscreen'>
       <div className='spinner'>
-        <Spinner animation="border" variant="danger" size='L'/>
+        <Spinner animation="border" variant="danger"/>
       </div>
     </div>
     

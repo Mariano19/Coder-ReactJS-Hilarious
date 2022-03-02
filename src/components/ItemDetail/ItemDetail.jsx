@@ -38,7 +38,7 @@ const ItemDetail = (prod) => {
               <div className='card-text'>
                 <Card.Title>
                   <span className='card-title'>{name}</span>
-                  </Card.Title>
+                </Card.Title>
                 <Card.Text>
                   {description}
                 </Card.Text>
