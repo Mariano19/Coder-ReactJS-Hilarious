@@ -17,6 +17,7 @@ const ItemList = memo( ({ products }) => {
           price={prod.price}
           categoria={prod.categoria}
           foto={prod.foto}
+          description={prod.description}
         />
       )}
     </Row>

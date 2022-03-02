@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { useCartContext } from '../../context/CartContext';
+import './itemCount.css'
+import { BsChevronDown,BsChevronUp } from "react-icons/bs";
 
 
-function ItemCount({ initial, stock, onAdd }) {
+function ItemCount({ initial, stock, onAdd, categoria }) {
     const [contador, setcontador] = useState(initial);
+    
 
     const handleAumentar = () => {
         if (contador < stock) {
@@ -21,26 +23,28 @@ function ItemCount({ initial, stock, onAdd }) {
         onAdd(contador)
     }
 
-    //
-    const{addProduct} = useCartContext();
+    /* //
+    const{addProduct} = useCartContext(); */
 
     return (
         <div className="buttons">
             <div>
-                <p>En stock</p>
-            </div>
-
-            <div className="button-count">
-                <button className="btn btn-outline-primary" onClick={handlerRestar}> - </button>
-                <div className="contador">
-                    {contador}
+                <span>En stock</span>
+                <div className="button-count">
+                    <button type="button" className="btn btn-light contador1" onClick={handlerRestar}> <BsChevronDown/> </button>                    
+                    <div className="contador">
+                        {contador}
+                    </div>
+                    <button type="button" className="btn btn-light contador2"onClick={handleAumentar}> <BsChevronUp/> </button>
                 </div>
-                <button className="btn btn-outline-primary" onClick={handleAumentar}> + </button>
-            </div>
+            </div>            
 
-            <div className="button-add">
-                {/* <button className="btn btn-primary btn-block" onClick={() =>addProduct(nombre)} >Agregar</button> */}
-                 <button className="btn btn-primary btn-block" onClick={addToCart} >Agregar</button> 
+            <div className="button-add">   
+                {categoria === 'verano'?
+                <button className='button-principal' onClick={addToCart}>Agregar</button>
+                :
+                <button className='button-principal-winter' onClick={addToCart}>Agregar</button>    
+                }        
             </div>            
         </div>
     )

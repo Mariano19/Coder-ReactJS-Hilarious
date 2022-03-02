@@ -1,0 +1,25 @@
+.button-count {
+    display: flex;
+    /* width: 14%; */
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.buttons span{
+    font-size: 14px;      
+}
+
+.buttons{
+    font-family: 'Raleway'; 
+}
+
+.contador1{
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.contador2{
+    padding: 5px;
+    margin-left: 10px;
+}

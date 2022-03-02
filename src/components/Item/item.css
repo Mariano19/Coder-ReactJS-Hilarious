@@ -38,37 +38,7 @@
     width: 100%;
 }
 
-/* .buttons{
-  display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-}
 
-.button-count{
-  display: flex;
-}
-
-.button-add{
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  /* display: flex;
-}
-
-.button-add button{
-  width: 100%;
-}
-
-.contador{
-  padding: 10px;
-}
-
-.price-list{
-  font-size: 2vw;
-  font-weight: 600;
-} */
 .button-principal-winter{
   backface-visibility: hidden;
   background: #234A85;

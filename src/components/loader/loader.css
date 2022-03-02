@@ -2,6 +2,23 @@
     margin: 0;
     position: absolute;
     top: 50%;
-    left: 50%;
-    
+    left: 50%;    
+}
+
+.fullscreen{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.274),rgba(0, 0, 0, 0.473));
+    width: 100%;
+    height: 100%;    
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.spinner-border {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    vertical-align: -0.125em;
+    border: 0.3em solid #AB3633;
+    border-right-color: transparent;
 }

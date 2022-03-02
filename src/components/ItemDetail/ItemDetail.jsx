@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import  Button from 'react-bootstrap/Button'
 import  Card  from 'react-bootstrap/Card'
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext';
 import ItemCount from '../ItemCount/ItemCount';
 import './itemDetail.css'
@@ -10,10 +9,10 @@ import './itemDetail.css'
 
 
 const ItemDetail = (prod) => {
-  const { name, categoria, stock, price, foto } = prod.product; 
+  const { name, categoria, stock, price, foto, description } = prod.product; 
   const [counter, setCounter] = useState(0);
-  const { cartList, agregarAlCarrito } = useCartContext()
-  const {idCategoria} = useParams();
+  const { agregarAlCarrito } = useCartContext()
+  
 
 
   //Agregar al carrito
@@ -34,34 +33,39 @@ const ItemDetail = (prod) => {
           <div className='card-image-detail'>
             <Card.Img variant="top" src={foto} />
           </div>
-          <Card.Body>
+          <Card.Body className='card-body-detail'>
             <div className='card-top'>
               <div className='card-text'>
-                <Card.Title>{name}</Card.Title>
+                <Card.Title>
+                  <span className='card-title'>{name}</span>
+                  </Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
+                  {description}
                 </Card.Text>
               </div>
               <div className='price-list'>
-                <h3>${price}</h3>
+                <span>${price}</span>
               </div> 
             </div>              
             {
               counter === 0 ?
                 <div className='card-bot'>                  
-                  <ItemCount stock={stock} initial={1} onAdd={onAdd} /> 
+                  <ItemCount stock={stock} initial={1} onAdd={onAdd} categoria={categoria} /> 
                 </div>
                 
               :
-                <div className='card-bot'>
-                  <Link to = '/cart'>
-                    <Button>Terminar compra</Button> 
-                  </Link>
-                  <Link to = '/'>
-                    <Button>Volver al home</Button> 
-                  </Link>
-                </div>
+              <div className='card-bot-finish'>                        
+                <Link to = '/' className='button-secundario-size'>
+                  <button className='button-secundario'>Volver</button>  
+                </Link>
+                <Link to = '/cart'>
+                    {categoria === 'verano'?
+                    <button className='button-principal'>Finalizar compra</button>
+                    :
+                    <button className='button-principal-winter'>Finalizar compra</button> 
+                    }                                                    
+                </Link>
+              </div>
             }                       
           </Card.Body>
         </Card>
@@ -70,40 +74,46 @@ const ItemDetail = (prod) => {
      :
      <div className='background-winter'>
        <div className='container'>
-        <Card className='card-detail'>
-          <div className='card-image-detail'>
-            <Card.Img variant="top" src={foto} />
-          </div>
-          <Card.Body>
-            <div>
-              <Card.Title>{name}</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-              </Card.Text>
-            </div>
-            
-            <div className='price-list'>
-              <h3>${price}</h3>
-            </div>  
-            {
-              counter === 0 ?
-                <div>                  
-                  <ItemCount stock={stock} initial={1} onAdd={onAdd} /> 
+            <Card className='card-detail'>
+                <div className='card-image-detail-winter'>
+                  <Card.Img className='card-top-winter' variant="top" src={foto} />
                 </div>
-                
-              :
-                <div>
-                  <Link to = '/cart'>
-                    <Button>Terminar compra</Button> 
-                  </Link>
-                  <Link to = '/'>
-                    <Button>Volver al home</Button> 
-                  </Link>
-                </div>
-            }                       
-          </Card.Body>
-        </Card>
+                <Card.Body className='card-body-detail'>
+                  <div className='card-top'>
+                    <div className='card-text'>
+                      <Card.Title>
+                        <span className='card-title'>{name}</span>
+                        </Card.Title>
+                      <Card.Text>
+                        {description}
+                      </Card.Text>
+                    </div>
+                    <div className='price-list'>
+                      <span>${price}</span>
+                    </div> 
+                  </div>              
+                  {
+                    counter === 0 ?
+                      <div className='card-bot'>                  
+                        <ItemCount stock={stock} initial={1} onAdd={onAdd} categoria={categoria} /> 
+                      </div>
+                      
+                    :
+                      <div className='card-bot-finish'>                        
+                        <Link to = '/' className='button-secundario-size'>
+                          <button className='button-secundario'>Volver</button>  
+                        </Link>
+                        <Link to = '/cart'>
+                            {categoria === 'verano'?
+                            <button className='button-principal'>Finalizar compra</button>
+                            :
+                            <button className='button-principal-winter'>Finalizar compra</button> 
+                            }                                                    
+                        </Link>
+                      </div>
+                  }                       
+                </Card.Body>
+              </Card>
       </div>
      </div>
      }
