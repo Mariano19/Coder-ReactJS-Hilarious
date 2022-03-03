@@ -4,7 +4,7 @@ import Button from "react-bootstrap/esm/Button";
 import { Link } from "react-router-dom";
 import  Card  from 'react-bootstrap/Card'
 import './cart.css'
-import { BsXLg } from "react-icons/bs";
+import { BsXLg, } from "react-icons/bs";
 import Form from '../Form/Form';
 
 const Cart = () => {
@@ -35,24 +35,31 @@ const Cart = () => {
                   </div>
                 </div>
                 
+                <div>
+                  <span>${produ.product.price}</span>
+                </div>
                 
                 <button type="button" className="btn btn-light" onClick={() => borrarItem(produ.product.id)}><BsXLg/></button>
 
               </div>)
               }
 
-              {`la suma es ${sumaTotal()}`}
-              
-              <button type="button" className="btn btn-light" onClick={vaciarCarrito} >Vaciar Carrito</button>      
-              
-              <Form></Form>
+              <div className="total-cart">
+                <span className="text">Total</span>
+                <span className="text2">${sumaTotal()}</span>
+              </div>              
+
+              <div className="buttons-cart">
+                <button id="bts" type="button" className="button-secundario" onClick={vaciarCarrito} >Vaciar Carrito</button>     
+                <Form></Form>
+              </div>             
               
               </>
               :
-              <div>
+              <div className="empty-cart">
                 <label>Tu carrito esta vacio</label>
                 <Link to='/'>
-                  <Button>Volver al home</Button>
+                  <button className="button-principal">Volver al home</button>
                 </Link>
               </div>
             }   

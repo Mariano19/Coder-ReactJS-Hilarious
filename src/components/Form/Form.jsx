@@ -89,21 +89,26 @@ const Form = () => {
 
     return <div>
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <button className="button-principal" onClick={handleShow}>
               Confirmar Compra
-            </Button>
+            </button>
       
             <Modal
               show={show}
               onHide={handleClose}
               backdrop="static"
               keyboard={false}
+              size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
             >
                 {showBuy == false? 
                 
                     <>
                         <Modal.Header closeButton>
-                            <Modal.Title>Completa tu orden</Modal.Title>
+                            <div className="title-cart">
+                                <span>Completa tu orden</span>
+                            </div>                          
                         </Modal.Header>
                         <Modal.Body>
                             <form                                
@@ -140,12 +145,10 @@ const Form = () => {
                             </form>                
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                            Volver
-                            </Button>
-                            <Button variant="primary"onClick={realizarCompra}>
-                                Realizar pedido
-                            </Button>
+                            <div className="buttons-cart">
+                                <button className='button-secundario' id="bts" onClick={handleClose}>Volver</button>
+                                <button className='button-principal' onClick={realizarCompra}>Realizar pedido</button>
+                            </div>
                             
                         </Modal.Footer>
                     </>
