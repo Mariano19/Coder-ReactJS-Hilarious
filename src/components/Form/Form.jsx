@@ -18,7 +18,7 @@ const Form = () => {
     const [showBuy, setShowBuy] = useState(false);      
     const handleShowBuy = () => setShowBuy(true);
 
-    const { cartList, vaciarCarrito, sumaTotal, borrarItem } = useCartContext()
+    const { cartList, vaciarCarrito, sumaTotal } = useCartContext()
     const [id, setId] = useState('')
     const [dataForm, setDataForm] = useState({
         email: '',
@@ -200,16 +200,3 @@ const Form = () => {
 
 export default Form
 
-
-
-{/* <div className="modal-end">                        
-<Modal.Header closeButton>
-   <Modal.Title>Gracias por tu compra!</Modal.Title>
-</Modal.Header>
-<Modal.Body className="order-body">                            
-   <span>El id de la orden es : ${id}</span>                                         
-</Modal.Body>
-<Modal.Footer>    
-   <button className='button-principal' onClick={endOrder}>Volver al home</button>                                 
-</Modal.Footer>     
-</div> */}
