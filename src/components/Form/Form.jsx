@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useCartContext } from "../../context/CartContext";
-import Button from "react-bootstrap/esm/Button";
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from "firebase/firestore";
 import  Modal from 'react-bootstrap/Modal'
+import './form.css'
+import Loader from "../loader/loader";
+import { Link } from 'react-router-dom';
 
 
 const Form = () => {
 
+    const [loading, setloading] = useState(false)
     /* Modal */
     const [show, setShow] = useState(false);      
     const handleClose = () => setShow(false);
@@ -24,6 +27,7 @@ const Form = () => {
     })
         
     const realizarCompra = async (e) => {
+        setloading(true)        
         e.preventDefault()
         let orden = {}
         orden.buyer = dataForm
@@ -69,6 +73,7 @@ const Form = () => {
                     name: ''
                 })
                 handleShowBuy(true)
+                setloading(false) 
             })
         batch.commit()
 
@@ -93,46 +98,50 @@ const Form = () => {
               Confirmar Compra
             </button>
       
-            <Modal
-              show={show}
-              onHide={handleClose}
-              backdrop="static"
-              keyboard={false}
-              size="lg"
+            
+                {showBuy === false? 
+
+                <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+                size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
-            >
-                {showBuy == false? 
-                
-                    <>
+                >                
+                    <>  
+                        { loading === false? 
+                        <>
                         <Modal.Header closeButton>
                             <div className="title-cart">
-                                <span>Completa tu orden</span>
+                                <span>Completa tus datos</span>
                             </div>                          
                         </Modal.Header>
                         <Modal.Body>
-                            <form                                
-                                >
+                            <form>
+                                <div className="form-name">
                                 <input
+                                    id="name"
                                     type='text'
                                     name='name'
-                                    placeholder='name'
+                                    placeholder=' Nombre'
                                     onChange={handleChange}
                                     value={dataForm.name}
                                 />
-                                <br />
                                 <input
-                                    type='number'
+                                    type='text'
                                     name='phone'
-                                    placeholder='tel'
+                                    placeholder=' Telefono'
                                     onChange={handleChange}
                                     value={dataForm.phone}
                                 />
-                                <br />
+                                </div>    
+                                
                                 <input
                                     type='email'
                                     name='email'
-                                    placeholder='email'
+                                    placeholder=' Email'
                                     onChange={handleChange}
                                     value={dataForm.email}
                                 />
@@ -142,36 +151,65 @@ const Form = () => {
                                     placeholder='Repetir Email'
                                     onChange={handleChange}                                
                                 /> 
+                                <select className="delivery">                                    
+                                    <option value="">Donde lo retiras?</option>
+                                    <option value="1">La plata</option>
+                                    <option value="2">Comodoro Rivadavia</option>                                    
+                                </select>
                             </form>                
                         </Modal.Body>
                         <Modal.Footer>
                             <div className="buttons-cart">
                                 <button className='button-secundario' id="bts" onClick={handleClose}>Volver</button>
                                 <button className='button-principal' onClick={realizarCompra}>Realizar pedido</button>
-                            </div>
-                            
+                            </div>                            
                         </Modal.Footer>
+                        
+                        </>              
+                        :  
+                        <Loader/> 
+                        }
                     </>
-                    :
-                    <>
-                         <Modal.Header closeButton>
-                            <Modal.Title>Gracias por tu compra!</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>                            
-                            {id !== '' && `El id de la orden es : ${id} `}                                           
-                        </Modal.Body>
-                        <Modal.Footer>                            
-                            <Button variant="primary"onClick={endOrder}>
-                                Volver
-                            </Button>                            
-                        </Modal.Footer>
-                    
-                    </>
-                }              
-            </Modal>
+                </Modal>
+                :
+                <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+                dialogClassName="modal-90w"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+                >  
+                    <div className="modal-end">                                                   
+                        <span>Id de la orden : ${id}</span>                                         
+                        
+                        <div className="footer-btn">  
+                            <Link to = '/'> 
+                            <button className='button-principal' onClick={endOrder}>Volver al home</button>   
+                            </Link>                              
+                        </div>     
+                    </div>
+                </Modal>
+            }              
+            
         </>
     
     </div>
 }
 
 export default Form
+
+
+
+{/* <div className="modal-end">                        
+<Modal.Header closeButton>
+   <Modal.Title>Gracias por tu compra!</Modal.Title>
+</Modal.Header>
+<Modal.Body className="order-body">                            
+   <span>El id de la orden es : ${id}</span>                                         
+</Modal.Body>
+<Modal.Footer>    
+   <button className='button-principal' onClick={endOrder}>Volver al home</button>                                 
+</Modal.Footer>     
+</div> */}

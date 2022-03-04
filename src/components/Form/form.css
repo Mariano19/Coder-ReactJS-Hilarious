@@ -1,0 +1,60 @@
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: max-content;
+    margin-left: 25%;
+}
+
+form input{
+    padding: 5px;
+    margin: 5px;
+    border: none;
+	border-bottom: 1px solid #ddd;
+}
+
+form select{
+    padding: 5px;
+    margin: 5px;
+    border: none;
+	border-bottom: 1px solid #ddd;
+    color: #0000009e;
+}
+
+
+.form-name{
+    width: 100%;
+    display: flex;
+}
+
+#name{
+    width: inherit;
+}
+
+.order-body{
+    height: 240px;
+}
+
+.modal-end{
+    background-image: url(../../assets/img/modalMessage.jpg);
+    background-size: contain;
+    height: 500px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.modal-end span{
+    margin-bottom: 7%;
+}
+
+.footer-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 5%; */
+    padding-bottom: 3%;
+}
