@@ -1,5 +1,4 @@
 import './App.css';
-/* import './bootstrap/dist/css/bootstrap.min.css'; */
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
@@ -9,10 +8,6 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import CartContextProvider from './context/CartContext';
 import Home from './pages/Home';
 import Summer from './pages/Summer';
-
-
-
-
 
 function App() {
   return (

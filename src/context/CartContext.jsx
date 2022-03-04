@@ -8,15 +8,12 @@ function CartContextProvider({ children }) {
     
     const [cartList, setCartList] = useState([]);
 
-    function agregarAlCarrito(item){
-        console.log(item)
+    function agregarAlCarrito(item){        
         const index = cartList.findIndex(prod => prod.product.id === item.product.id )
 
-        if (index === -1) {
-            // no existe, lo agrego
+        if (index === -1) {            
             setCartList( [ ...cartList, item ] )
-        } else {
-            // si existe
+        } else {            
             const cant = cartList[index].cantidad
             cartList[index].cantidad = item.cantidad + cant 
             const newCartList = [ ...cartList ]
@@ -39,8 +36,7 @@ function CartContextProvider({ children }) {
     function vaciarCarrito() {
         setCartList([])
         
-    }
-    console.log(cartList)
+    }    
   return <cartContext.Provider value={{
       cartList,
       agregarAlCarrito,
